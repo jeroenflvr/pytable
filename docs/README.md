@@ -84,7 +84,7 @@ DuckDB v1.3.2 (Ossivalis) 0b83e5d2f6
 Enter ".help" for usage hints.
 Connected to a transient in-memory database.
 Use ".open FILENAME" to reopen on a persistent database.
-D create or replace view first as select * from pytable("first_test:dcols", kwargs={"first_only": True}, columns = {"name": VARCHAR});
+D create or replace view first as select * from pytable("first_test:dcols", kwargs={"first_col_only": True}, columns = {"name": VARCHAR});
 D select * from first;
 ┌─────────┐
 │  name   │
