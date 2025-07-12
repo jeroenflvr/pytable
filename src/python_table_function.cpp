@@ -64,7 +64,7 @@ PyObject *PythonTableFunction::wrap_function(PyObject *function) {
 	// Otherwise, go ahead and wrappe it
 	debug("Creating a tuple for arguments");
 	PyObject *args = PyTuple_New(1);
-	debug("Setting our function as hte only argument");
+	debug("Setting our function as the only argument");
 	PyTuple_SetItem(args, 0, function);
 
 	if (!function) {
@@ -96,7 +96,7 @@ PyObject *PythonTableFunction::wrap_function(PyObject *function) {
 
 	debug("Calling the function to wrap our function");
 	//PyObject *wrapped_function = PyObject_CallObject(decorator, args);
-	debug("Completed calling the function to wrapp");
+	debug("Completed calling the function to wrap");
 	// if (!wrapped_function) {
 	// 	debug("Error wrapping the function");
 	// 	PyErr_Print();
@@ -141,6 +141,8 @@ PyObject *PythonTableFunction::import_decorator_class() {
 // list-like object
 std::vector<PyObject *> PythonTableFunction::call_to_list(std::string attr_name, PyObject *args, PyObject *kwargs) {
 	std::vector<PyObject *> items;
+
+	debug("Calling " + attr_name + "() on our Python function");
 
 	// Get the 'column_types' method
 	PyObject *method = PyObject_GetAttrString(function, attr_name.c_str());

@@ -195,8 +195,22 @@ std::vector<duckdb::LogicalType> PyTypesToLogicalTypes(const std::vector<PyObjec
 	    {"int", duckdb::LogicalType::INTEGER},
 	    {"str", duckdb::LogicalType::VARCHAR},
 	    {"float", duckdb::LogicalType::DOUBLE},
+		{"bool", duckdb::LogicalType::BOOLEAN},
+	    {"NoneType", duckdb::LogicalType::SQLNULL},
+		{"dict", duckdb::LogicalType::STRUCT({})},
+		{"list", duckdb::LogicalType::LIST(duckdb::LogicalType::SQLNULL)},
+		{"tuple", duckdb::LogicalType::STRUCT({})},
+		// Add more mappings as needed
+		{"datetime", duckdb::LogicalType::TIMESTAMP},
+		{"date", duckdb::LogicalType::DATE},
+		{"time", duckdb::LogicalType::TIME},
+		{"bytes", duckdb::LogicalType::BLOB},
+		
+
+	
 	    // TODO: Add more mappings for other supported Python types
 	};
+
 
 	// Iterate over the Python type objects
 	for (PyObject *pyType : pyTypes) {
