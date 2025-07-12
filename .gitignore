@@ -7,3 +7,11 @@ testext
 test/python/__pycache__/
 .Rhistory
 *.csv
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+*.egg-info
+*.egg
+*.whl
